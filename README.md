@@ -16,6 +16,7 @@ Javascript
 - [JavaScript curry function](Javascript/11.md)
 - [Chain of Responsibility](Javascript/12.md)
 - [Javascript ECMA 整理 ](Javascript/13.md)
+- [Javascript primitive type](Javascript/14.md)
 
 CSS
 ---
@@ -26,6 +27,7 @@ CSS
 React
 ---
 - [React chart tools](React/01.md)
+- [React Hooks](React/02.md)
 
 React Native
 ---
