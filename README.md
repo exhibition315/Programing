@@ -28,6 +28,7 @@ React
 ---
 - [React chart tools](React/01.md)
 - [React Hooks](React/02.md)
+- [React Lazy and Suspense](React/03.md)
 
 React Native
 ---
