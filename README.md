@@ -34,9 +34,9 @@ React
 
 React Native
 ---
-- [React Native Environment Setup](React Native/01.md)
-- [React Native Beta build with Fastlane](React Native/02.md)
-- [萬人封測 in TestFlight](React Native/03.md)
+- [React Native Environment Setup](ReactNative/01.md)
+- [React Native Beta build with Fastlane](ReactNative/02.md)
+- [萬人封測 in TestFlight](ReactNative/03.md)
 
 C#
 ---
