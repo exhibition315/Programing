@@ -17,6 +17,7 @@ Javascript
 - [Chain of Responsibility](Javascript/12.md)
 - [Javascript ECMA 整理 ](Javascript/13.md)
 - [Javascript primitive type](Javascript/14.md)
+- [Javascript Event Propagation](Javascript/15.md)
 
 CSS
 ---
