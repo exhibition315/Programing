@@ -13,11 +13,12 @@ Javascript
 - [Javascript Hoisting](Javascript/08.md)
 - [Javascript Closure](Javascript/09.md)
 - [Javascript Equal Operation](Javascript/10.md)
-- [JavaScript curry function](Javascript/11.md)
+- [JavaScript Curry Function](Javascript/11.md)
 - [Chain of Responsibility](Javascript/12.md)
 - [Javascript ECMA 整理 ](Javascript/13.md)
 - [Javascript primitive type](Javascript/14.md)
 - [Javascript Event Propagation](Javascript/15.md)
+- [Javascript Pipe](Javascript/16.md)
 
 CSS
 ---
