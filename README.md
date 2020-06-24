@@ -19,6 +19,7 @@ Javascript
 - [Javascript primitive type](Javascript/14.md)
 - [Javascript Event Propagation](Javascript/15.md)
 - [Javascript Pipe](Javascript/16.md)
+- [Javascript Debounce and Throttle](Javascript/17.md)
 
 CSS
 ---
