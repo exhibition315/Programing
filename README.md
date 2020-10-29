@@ -38,6 +38,7 @@ React
 - [React Lazy and Suspense](React/03.md)
 - [React Fragment](React/04.md)
 - [React React getDrivedStateFromProps](React/05.md)
+- [Styled-Components pass style from props](React/06.md)
 
 React Native
 ---
