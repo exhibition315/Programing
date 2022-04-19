@@ -20,6 +20,8 @@ Javascript
 - [Javascript Event Propagation](Javascript/15.md)
 - [Javascript Pipe](Javascript/16.md)
 - [Javascript Debounce and Throttle](Javascript/17.md)
+- [Javascript Functional Programming](Javascript/18.md)
+- [Event Loop](Javascript/19.md)
 
 CSS
 ---
