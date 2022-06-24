@@ -57,6 +57,15 @@ C#
 - [C# From Delegate to Lambda](C#/05.md)
 - [C# Efficiency](C#/06.md)
 
+Algorithm
+---
+- [Intro](Algorithm/01.md)
+- [Linear Search](Algorithm/02.md)
+- [Binary Search](Algorithm/03.md)
+- [General Skill - Counter and Pointer](Algorithm/04.md)
+- [Bubble Sort](Algorithm/05.md)
+- [Insertion Sort](Algorithm/06.md)
+
 Other
 ---
 - [Draftjs ContentState](Other/01.md)
