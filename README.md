@@ -65,6 +65,8 @@ Algorithm
 - [General Skill - Counter and Pointer](Algorithm/04.md)
 - [Bubble Sort](Algorithm/05.md)
 - [Insertion Sort](Algorithm/06.md)
+- [Selection Sort](Algorithm/07.md)
+- [Merge Sort](Algorithm/08.md)
 
 Other
 ---
