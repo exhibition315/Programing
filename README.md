@@ -67,6 +67,10 @@ Algorithm
 - [Insertion Sort](Algorithm/06.md)
 - [Selection Sort](Algorithm/07.md)
 - [Merge Sort](Algorithm/08.md)
+- [Tree](Algorithm/09.md)
+- [Heap Sort](Algorithm/10.md)
+- [Quick Sort](Algorithm/11.md)
+- [Linked List](Algorithm/12.md)
 
 Other
 ---
