@@ -71,6 +71,9 @@ Algorithm
 - [Heap Sort](Algorithm/10.md)
 - [Quick Sort](Algorithm/11.md)
 - [Linked List](Algorithm/12.md)
+- [Stack and Queue](Algorithm/13.md)
+- [Hash Table](Algorithm/14.md)
+- [Graph and Tree](Algorithm/15.md)
 
 Other
 ---
