@@ -9,6 +9,8 @@ class Node {
 class BinarySearchTree {
   constructor() {
     this.root = null;
+    this.path = "";
+    this.queue = [];
   }
 
   insert(z) {
@@ -33,6 +35,68 @@ class BinarySearchTree {
       y.right = z;
     }
   }
+
+  searchRecursively(x, key) {
+    if (x === null || x.key === key) {
+      return x;
+    } else if (key < x.key) {
+      return this.searchRecursively(x.left, key);
+    } else {
+      return this.searchRecursively(x.right, key);
+    }
+  }
+
+  searchIteratively(x, key) {
+    while (x !== null && key !== x.key) {
+      if (key < x.key) {
+        x = x.left;
+      } else {
+        x = x.right;
+      }
+    }
+    return x;
+  }
+
+  preOrder(n) {
+    if (n !== null) {
+      this.path = `${this.path}${n.key} `;
+      this.preOrder(n.left);
+      this.preOrder(n.right);
+    }
+  }
+
+  inOrder(n) {
+    if (n !== null) {
+      this.inOrder(n.left);
+      this.path = `${this.path}${n.key} `;
+      this.inOrder(n.right);
+    }
+  }
+
+  postOrder(n) {
+    if (n !== null) {
+      this.postOrder(n.left);
+      this.postOrder(n.right);
+      this.path = `${this.path}${n.key} `;
+    }
+  }
+
+  bftt(n) {
+    if (n !== null) {
+      this.queue.push(n);
+      for (let i = 0; i < this.queue.length; i++) {
+        const currentNode = this.queue[i];
+        if (currentNode !== null) {
+          if (currentNode.left !== null) {
+            this.queue.push(currentNode.left);
+          }
+          if (currentNode.right !== null) {
+            this.queue.push(currentNode.right);
+          }
+        }
+      }
+    }
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -45,4 +109,6 @@ bst.insert(new Node(2));
 bst.insert(new Node(14));
 bst.insert(new Node(8));
 bst.insert(new Node(3));
-console.log(bst);
+
+const result = bst.searchIteratively(bst.root, 14);
+console.log(result);

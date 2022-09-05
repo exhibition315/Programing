@@ -74,6 +74,8 @@ Algorithm
 - [Stack and Queue](Algorithm/13.md)
 - [Hash Table](Algorithm/14.md)
 - [Graph and Tree](Algorithm/15.md)
+- [Priority Queue](Algorithm/16.md)
+- [Minimal Spanning Tree](Algorithm/17.md)
 
 Other
 ---
