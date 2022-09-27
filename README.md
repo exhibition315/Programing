@@ -76,6 +76,8 @@ Algorithm
 - [Graph and Tree](Algorithm/15.md)
 - [Priority Queue](Algorithm/16.md)
 - [Minimal Spanning Tree](Algorithm/17.md)
+- [DFT and BFT for Graph](Algorithm/18.md)
+- [Floyd Warshall Algorithm and Dijkstra's Algorithm](Algorithm/19.md)
 
 Other
 ---
