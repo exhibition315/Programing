@@ -78,6 +78,7 @@ Algorithm
 - [Minimal Spanning Tree](Algorithm/17.md)
 - [DFT and BFT for Graph](Algorithm/18.md)
 - [Floyd Warshall Algorithm and Dijkstra's Algorithm](Algorithm/19.md)
+- [Greedy Method and Dynamic Programming](Algorithm/20.md)
 
 Other
 ---
