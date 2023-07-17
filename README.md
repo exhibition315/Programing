@@ -22,6 +22,11 @@ Javascript
 - [Javascript Debounce and Throttle](Javascript/17.md)
 - [Javascript Functional Programming](Javascript/18.md)
 - [Event Loop](Javascript/19.md)
+- [Overload](Javascript/Code/overload.js)
+- [Singleton](Javascript/Code/singleton.js)
+- [Timeout Fetch](Javascript/Code/timeoutFetch.js)
+- [Defer render](Javascript/Code/useDefer.js)
+
 
 CSS
 ---
