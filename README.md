@@ -26,7 +26,10 @@ Javascript
 - [Singleton](Javascript/Code/singleton.js)
 - [Timeout Fetch](Javascript/Code/timeoutFetch.js)
 - [Defer render](Javascript/Code/useDefer.js)
-
+- [Class to Function](Javascript/Code/classToFunction.js)
+- [Process Tasks](Javascript/Code/processTasks.js)
+- [File Viewer](Javascript/Code/FileViewer.html)
+- [Matrix Code](Javascript/Code/MatrixCode.html)
 
 CSS
 ---

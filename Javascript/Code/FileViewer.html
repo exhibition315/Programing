@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>File Viewer</title>
+  </head>
+
+  <body>
+    <button>打開文件夾</button>
+    <script>
+      const btn = document.querySelector("button");
+      btn.onclick = async function () {
+        try {
+          const handle = await showDirectoryPicker();
+          const root = await processHandle(handle);
+          await openFile(root.children[1]);
+          console.log(root);
+          // 可以使用 highlight.js 去高光化程式碼
+          // https://github.com/highlightjs/highlight.js
+        } catch {
+          console.error('Error occur');
+        }
+      };
+
+      async function processHandle(handle) {
+        if (handle.kind === "file") {
+          return handle;
+        }
+
+        handle.children = [];
+        const iterators = await handle.entries(); // 取得文件夾中所有的內容
+        // iter 是一個異步迭代器
+        for await (const iterator of iterators) {
+          // 遞迴的處理每一個 handle
+          const subHandle = await processHandle(iterator[1]);
+          handle.children.push(subHandle);
+        }
+        return handle;
+      }
+
+      async function openFile(handle) {
+        const file = await handle.getFile();
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          console.log(e.target.result);
+        };
+        reader.readAsText(file, "utf-8");
+      }
+    </script>
+  </body>
+</html>

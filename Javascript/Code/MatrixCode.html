@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matrix Code</title>
+  </head>
+
+  <body>
+    <canvas id="bg"></canvas>
+    <script>
+      const cvs = document.getElementById("bg");
+      const width = window.innerWidth * devicePixelRatio;
+      const height = window.innerHeight * devicePixelRatio;
+
+      // 設定 canvas 寬高
+      cvs.width = width;
+      cvs.height = height;
+
+      const ctx = cvs.getContext("2d");
+      const fontSize = 20 * devicePixelRatio;
+
+      // 定義列寬
+      const columnWidth = fontSize;
+      // 列數
+      const columnCount = Math.floor(width / columnWidth);
+
+      // 每一列下一個文字是第幾個字
+      const nextChar = new Array(columnCount).fill(0);
+
+      // 畫一行文字
+      function draw() {
+        ctx.fillStyle = "rgba(240, 240, 240, 0.1)";
+        ctx.fillRect(0, 0, width, height);
+        for (let i = 0; i < columnCount; i++) {
+          // 畫一個字
+          // 準備 顏色 內容 字體 位置
+          ctx.fillStyle = getRandomColor();
+          const char = getRandomChar();
+          ctx.font = `${fontSize}px "Robot Mono"`;
+          const x = i * columnCount; // x 座標：現在是第 i 個乘上每一個列的寬度
+          const s = nextChar[i]; // nextChar 裡面的第 i 列拿出來
+          const y = (s + 1) * fontSize; // s 假設是 5，表示要從第 6 個並且乘上字體大小開始畫
+          ctx.fillText(char, x, y);
+          if (y > height && Math.random() > 0.99) { 
+            // Math.random > 0.99 的意義是要讓每一行的字超出可視範圍後歸零的時間點不同，而產生隨機感
+            nextChar[i] = 0; // 超出可視範圍了，從頭畫起
+          } else {
+            nextChar[i]++; // 這行畫完了，要畫下一行了
+          }
+        }
+      }
+
+      function getRandomColor() {
+        const fontColor = [
+          "#33B5E5",
+          "#0099CC",
+          "#AA66CC",
+          "#9933CC",
+          "#99CC00",
+          "#669900",
+          "#FFBB33",
+          "#FF8800",
+          "#FF4444",
+          "#CC0000",
+        ];
+        return fontColor[Math.floor(Math.random() * fontColor.length)];
+      }
+
+      function getRandomChar() {
+        const str = "Matrix Code";
+        return str[Math.floor(Math.random() * str.length)];
+      }
+
+      draw();
+      setInterval(draw, 30);
+    </script>
+  </body>
+</html>
