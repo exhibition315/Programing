@@ -30,6 +30,9 @@ Javascript
 - [Process Tasks](Javascript/Code/processTasks.js)
 - [File Viewer](Javascript/Code/FileViewer.html)
 - [Matrix Code](Javascript/Code/MatrixCode.html)
+- [Big Number Add](Javascript/Code/BigNumberAdd.js)
+- [Deep Clone v1](Javascript/Code/deepCloneV1.js)
+- [Parallel Task](Javascript/Code/parallelTask.js)
 
 CSS
 ---
