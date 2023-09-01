@@ -33,6 +33,7 @@ Javascript
 - [Big Number Add](Javascript/Code/BigNumberAdd.js)
 - [Deep Clone v1](Javascript/Code/deepCloneV1.js)
 - [Parallel Task](Javascript/Code/parallelTask.js)
+- [Deconstruct and Iterator](Javascript/Code/deconstructAndIterator.js)
 
 CSS
 ---
