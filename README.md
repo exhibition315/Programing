@@ -34,6 +34,7 @@ Javascript
 - [Deep Clone v1](Javascript/Code/deepCloneV1.js)
 - [Parallel Task](Javascript/Code/parallelTask.js)
 - [Deconstruct and Iterator](Javascript/Code/deconstructAndIterator.js)
+- [TaskPool](Javascript/Code/TaskPool.js)
 
 CSS
 ---
