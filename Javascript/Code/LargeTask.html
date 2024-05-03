@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Large Task</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .ball-container {
+        position: relative;
+        width: 500px;
+        height: 100px;
+      }
+
+      .ball {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: red;
+        -webkit-animation: linear infinite;
+        -webkit-animation-name: run;
+        -webkit-animation-duration: 5s;
+      }
+
+      @keyframes run {
+        0% {
+          left: 0;
+        }
+        50% {
+          left: 100%;
+        }
+        100% {
+          left: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <p>點擊按鈕，會執行 1000 個任務</p>
+      <p id="log"></p>
+      <button>執行任務</button>
+
+      <div class="ball-container">
+        <div class="ball"></div>
+      </div>
+    </div>
+
+    <script>
+      const btn = document.querySelector("button");
+      const logText = document.querySelector("#log");
+      let completeTime = 0;
+      let completeCount = 0;
+
+      btn.onclick = function () {
+        // const startLog = Date.now();
+        for (let i = 0; i < 1000; i++) {
+          runTask(blockTask);
+        }
+        // logText.textContent = `執行了 ${Date.now() - startLog} ms`;
+      };
+
+      function blockTask() {
+        let run = true;
+        const startTime = Date.now();
+        while (run) {
+          const diff = Date.now() - startTime;
+          if (diff >= 5) {
+            completeCount++;
+            completeTime += diff;
+            run = false;
+          }
+          if (completeCount === 1000) {
+            logText.textContent = `執行了 ${completeTime} ms`;
+          }
+        }
+      }
+
+      /**
+       * 運行一個耗時任務
+       * 若要非同步運行，需返回 Promise
+       * 要盡快完成任務，且不要卡頓動畫
+       * 兼具瀏覽器相容
+       * @param {Function} task
+       */
+
+      function runTask(task) {
+        run4(task);
+      }
+
+      function run1(task) {
+        // 直接執行 -> 阻塞
+        task();
+      }
+
+      function run2(task) {
+        // Micro Task -> 阻塞
+        return new Promise((resolve) => {
+          Promise.resolve().then(task).then(resolve);
+        });
+      }
+
+      function run3(task) {
+        // Marco Task -> 卡頓
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            task();
+            resolve();
+          }, 0);
+        });
+      }
+
+      function run4(task) {
+        return new Promise((resolve) => {
+          _runTask(task, resolve);
+        });
+      }
+
+      function _runTask(task, callback) {
+        const start = Date.now();
+        requestAnimationFrame(() => {
+          if (Date.now() - start < 16.6) {
+            task();
+            callback();
+          } else {
+            _runTask(task, callback);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

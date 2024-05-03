@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chunk File</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/spark-md5/3.0.2/spark-md5.min.js"
+      type="application/javascript"
+    ></script>
+  </head>
+
+  <body>
+    <div>
+      <input type="file" />
+    </div>
+
+    <script>
+      const CHUNK_SIZE = 1024 * 5; //5kb
+      const THREAD_COUNT = navigator.hardwareConcurrency || 4;
+
+      const inputFile = document.querySelector('input[type="file"]');
+      const result = [];
+      let finishCount = 0;
+
+      inputFile.onchange = async (e) => {
+        const file = e.target.files[0];
+        console.time("timestamp");
+        await chunkFileWithConcurrency(file);
+        console.timeEnd("timestamp");
+      };
+
+      async function chunkFile(file) {
+        const chunkCount = Math.ceil(file.size / CHUNK_SIZE);
+        const proms = [];
+        for (let i = 0; i < chunkCount; i++) {
+          const chunk = createChunk(file, i, CHUNK_SIZE);
+          proms.push(chunk);
+        }
+        const result = await Promise.all(proms);
+        console.log(result);
+      }
+
+      function chunkFileWithConcurrency(file) {
+        return new Promise((resolve) => {
+          const chunkCount = Math.ceil(file.size / CHUNK_SIZE);
+          const threadChunkCount = Math.ceil(chunkCount / THREAD_COUNT);
+
+          for (let i = 0; i < THREAD_COUNT; i++) {
+            const spark = new SparkMD5.ArrayBuffer();
+            const worker = new Worker("./chunkFileWorker.js", {
+              type: "module",
+            });
+
+            const start = i * threadChunkCount;
+            let end = (i + 1) * threadChunkCount;
+            if (end > chunkCount) {
+              end = chunkCount;
+            }
+
+            worker.postMessage({
+              file,
+              CHUNK_SIZE,
+              startChunkIndex: i * threadChunkCount,
+              endChunkIndex: end,
+              spark: new SparkMD5.ArrayBuffer(),
+            });
+
+            worker.onmessage = (e) => {
+              for (let i = start; i < end; i++) {
+                result[i] = e.data[i - start];
+              }
+              worker.terminate();
+              finishCount++;
+              if (finishCount === THREAD_COUNT) {
+                resolve(result);
+              }
+            };
+          }
+        });
+      }
+
+      function createChunk(file, index, chunkSize) {
+        return new Promise((resolve) => {
+          const start = index * chunkSize;
+          const end = start + chunkSize;
+          const spark = new SparkMD5.ArrayBuffer();
+          const fileReader = new FileReader();
+          const blob = file.slice(start, end);
+          fileReader.onload = (e) => {
+            spark.append(e.target.result);
+            resolve({
+              start,
+              end,
+              index,
+              hash: spark.end(),
+              blob,
+            });
+          };
+          fileReader.readAsArrayBuffer(blob);
+        });
+      }
+    </script>
+  </body>
+</html>

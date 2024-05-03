@@ -35,6 +35,8 @@ Javascript
 - [Parallel Task](Javascript/Code/parallelTask.js)
 - [Deconstruct and Iterator](Javascript/Code/deconstructAndIterator.js)
 - [TaskPool](Javascript/Code/TaskPool.js)
+- [LargeTask](Javascript/Code/LargeTask.html)
+- [ChunkFile](Javascript/Code/ChunkFile.html)
 
 CSS
 ---
