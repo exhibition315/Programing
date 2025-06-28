@@ -38,6 +38,8 @@ Javascript
 - [TaskPool](Javascript/Code/TaskPool.js)
 - [LargeTask](Javascript/Code/LargeTask.html)
 - [ChunkFile](Javascript/Code/ChunkFile.html)
+- [PromiseRace](Javascript/Code/promiseRace.js)
+- [PromiseAll](Javascript/Code/promiseAll.js)
 
 CSS
 ---
