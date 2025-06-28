@@ -32,6 +32,7 @@ Javascript
 - [Matrix Code](Javascript/Code/MatrixCode.html)
 - [Big Number Add](Javascript/Code/BigNumberAdd.js)
 - [Deep Clone v1](Javascript/Code/deepCloneV1.js)
+- [Deep Clone v2](Javascript/Code/deepCloneV2.js)
 - [Parallel Task](Javascript/Code/parallelTask.js)
 - [Deconstruct and Iterator](Javascript/Code/deconstructAndIterator.js)
 - [TaskPool](Javascript/Code/TaskPool.js)
